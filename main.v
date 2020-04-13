@@ -22,13 +22,13 @@ fn main() {
 	for {			//endless while
                 hash.write((text+nonce.str()).bytes())	//write the text and nonce into hash as bytes
                 hasht := hash.sum("".bytes()) 		//make hash
-                hashthex := hasht.hex()			//convert byte output into hex
+                hashthex := hasht.hex()                 //convert byte output into hex
+
                 if hashthex[0..5] == "00000"{		//if hash beginns with ... leading nulls
                 	println('Hash found!: ' + hashthex + ' Text+Nonce: ' + text+nonce.str()+ ' Count: ' + count.str())	//print hash, text&nonce and counter
                 	break	//stop the loop
                 }
-				//println(hashthex)
-				//hashthex.free()	
+		//println(hashthex)
 
                 hash.reset()	//reset hash
                 nonce += 1	//increment nonce and counter by 1
