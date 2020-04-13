@@ -11,30 +11,30 @@ There is no garbage collection (don't know how yet), so watch RAM !!!
 */
 
 fn main() {
-		seed := time.now().unix		//seed rand with unix time
-		mut nonce := rand.rand_r(&seed)		//make new random nonce
+	seed := time.now().unix		//seed rand with unix time
+	mut nonce := rand.rand_r(&seed)	//make new random nonce
         text := "HelloWorld"		
-        mut count := 0				//count counts the runs
+        mut count := 0			//count counts the runs
         println("Random Nonce: "+nonce.str())
-		println("Started: "+time.now().str())
+	println("Started: "+time.now().str())
         
-		hash := sha256.new()		//make new SHA256 hash
-		for {						//endless while
+	hash := sha256.new()	//make new SHA256 hash
+	for {			//endless while
                 hash.write((text+nonce.str()).bytes())	//write the text and nonce into hash as bytes
-                hasht := hash.sum("".bytes()) 			//make hash
-                hashthex := hasht.hex()					//convert byte output into hex
-                if hashthex[0..5] == "00000"{			//if hash beginns with ... leading nulls
+                hasht := hash.sum("".bytes()) 		//make hash
+                hashthex := hasht.hex()			//convert byte output into hex
+                if hashthex[0..5] == "00000"{		//if hash beginns with ... leading nulls
                 	println('Hash found!: ' + hashthex + ' Text+Nonce: ' + text+nonce.str()+ ' Count: ' + count.str())	//print hash, text&nonce and counter
-                	break			//stop the loop
+                	break	//stop the loop
                 }
 				//println(hashthex)
 				//hashthex.free()	
 
-                hash.reset()		//reset hash
-                nonce += 1			//increment nonce and counter by 1
+                hash.reset()	//reset hash
+                nonce += 1	//increment nonce and counter by 1
                 count += 1
         }
-		println("Stopped "+time.now().str())	//print timestamp
+	println("Stopped "+time.now().str())	//print timestamp
 }
 /*
 		Examples:
