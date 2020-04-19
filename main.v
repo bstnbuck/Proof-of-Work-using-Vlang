@@ -7,33 +7,33 @@ import (
 /*
 Because this is my first V-project, there is of course still a lot of potential upwards. 
 Care should be taken with the leading zeros, as they influence the runtime considerably. 
-There is no garbage collection (don't know how yet), so watch RAM !!!
+There is no garbage collection (don't know how yet), so watch memory !!!
 */
 
 fn main() {
-	seed := time.now().unix		//seed rand with unix time
-	mut nonce := rand.rand_r(&seed)	//make new random nonce
-        text := "HelloWorld"		
-        mut count := 0			//count counts the runs
-        println("Random Nonce: "+nonce.str())
+	seed := time.now().unix				//seed rand with unix time
+	mut nonce := rand.rand_r(&seed)			//make new random nonce
+    	text := "HelloWorld"		
+	mut count := 0					//count counts the runs
+    	println("Random Nonce: "+nonce.str())
 	println("Started: "+time.now().str())
         
-	hash := sha256.new()	//make new SHA256 hash
-	for {			//endless while
-                hash.write((text+nonce.str()).bytes())	//write the text and nonce into hash as bytes
-                hasht := hash.sum("".bytes()) 		//make hash
-                hashthex := hasht.hex()                 //convert byte output into hex
-
-                if hashthex[0..5] == "00000"{		//if hash beginns with ... leading nulls
-                	println('Hash found!: ' + hashthex + ' Text+Nonce: ' + text+nonce.str()+ ' Count: ' + count.str())	//print hash, text&nonce and counter
-                	break	//stop the loop
-                }
-		//println(hashthex)
-
-                hash.reset()	//reset hash
-                nonce += 1	//increment nonce and counter by 1
-                count += 1
-        }
+	//mut hash := sha256.new()			// [OLD] make new SHA256 hash
+	for{						//endless while
+		//hash.write((text+nonce.str()).bytes())	// [OLD] write the text and nonce into hash as bytes
+		hashthex := sha256.hexhash(text+nonce.str())	//instead using hexhhash which generates hash and convert the byte output into hex
+		
+		if hashthex.starts_with("00000"){
+			println('Hash found!: ' + hashthex + ' Text+Nonce: ' + text+nonce.str()+ ' Count: ' + count.str())	//print hash, text&nonce and counter
+			break			//stop the loop
+		}
+		//println(hashthex)		// DEBUG	
+		
+		hashthex.free()
+		//hash.reset()			// [OLD] reset hash
+		nonce += 1			//increment nonce and counter by 1
+		count += 1
+	}
 	println("Stopped "+time.now().str())	//print timestamp
 }
 /*
