@@ -1,5 +1,7 @@
 # Proof-of-Work implementation in Vlang
 
+![PoW using Vlang](https://github.com/bstnbuck/Proof-of-Work-using-Vlang/workflows/PoW%20using%20Vlang/badge.svg?branch=master)
+
 >**Not all functions are implemented yet! This program should only show the principle of Proof-of-Work and Blockchains.**
 The Blockchain is programmed in [V](https://github.com/vlang/v). As hash algorithm is used SHA256.
 
