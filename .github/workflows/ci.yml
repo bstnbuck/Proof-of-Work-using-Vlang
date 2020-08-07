@@ -19,4 +19,4 @@ jobs:
         cd v
         make
     - name: run proof-of-work
-      run: v main.v
+      run: ./v .
