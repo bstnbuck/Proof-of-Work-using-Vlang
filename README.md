@@ -13,6 +13,8 @@ The Blockchain is programmed in [V](https://github.com/vlang/v). As hash algorit
 
 Execute/Debug:
 * If you want to execute the Proof-of-Work run the program in console with `v run main.v`.
+* After that enter the leading hex-nulls the hash should have. Should like this: **0000**
+    => Otherwise an error will be printed and the program exits.
 
 Using **VS-Code**:
 With VS-Code you can easily edit the Code, but be very careful of what you change!

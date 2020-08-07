@@ -1,6 +1,7 @@
 import crypto.sha256
-import rand
-import time
+import rand {u32}
+import time {now}
+import os {input}
 
 /*
 Because this is my first V-project, there is of course still a lot of potential upwards. 
@@ -14,9 +15,18 @@ fn main() {
 	println('Random Nonce: ' + nonce.str())
 	println('Started: ' + time.now().str())
 	mut hashthex := ''
+	mut i := 0
+    nulls := os.input('Enter leading hex-nulls: ')
+    for i < nulls.len{
+        if nulls[i].str() != '0'{
+            println("ERROR: Must be nulls!")
+            exit(1)
+        }
+        i++
+    }
 	for { // endless while
 		hashthex = sha256.hexhash(text + nonce.str())
-		if hashthex.starts_with('0000') {
+		if hashthex.starts_with(nulls) {
 			println('Hash found!: $hashthex  Text+Nonce: ' + text + nonce.str() + ' Count: ' +
 				count.str()) // print hash, text&nonce and counter
 			break // stop the loop
