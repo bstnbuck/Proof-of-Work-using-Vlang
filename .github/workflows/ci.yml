@@ -1,0 +1,22 @@
+name: PoW using Vlang
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: install V
+      run: |
+        git clone https://github.com/vlang/v
+        cd v
+        make
+    - name: run proof-of-work
+      run: v main.v
