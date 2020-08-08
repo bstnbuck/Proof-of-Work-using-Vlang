@@ -13,11 +13,23 @@ The Blockchain is programmed in [V](https://github.com/vlang/v). As hash algorit
 ## Usage
 `git clone https://github.com/bstnbuck/Proof-of-Work-using-Vlang.git`
 
-Execute/Debug:
+##### Execute:
 * If you want to execute the Proof-of-Work run the program in console with `v run main.v`.
 * After that enter the leading hex-nulls the hash should have. Should like this: **0000**
     => Otherwise an error will be printed and the program exits.
 
+##### Example output:
+```
+Enter leading hex-nulls: 0000
+Random Nonce: 3322132513
+Started: 2020-08-08 23:43:29
+
+Hash found!: 0000e896ab477e8a1dd9392f1133c717c026cb2ce07a2486ba90812728ce4838
+Text+Nonce: HelloWorld3322135425 Count: 2912
+
+Stopped: 2020-08-08 23:43:30
+Duration: 48ms => 0sec
+```
 Using **VS-Code**:
 With VS-Code you can easily edit the Code, but be very careful of what you change!
 
