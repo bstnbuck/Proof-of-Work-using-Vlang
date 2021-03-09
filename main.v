@@ -2,6 +2,7 @@ import crypto.sha256
 import rand
 import time
 import os
+import strconv
 
 /*
 Because this is my first V-project, there is of course still a lot of potential upwards. 
@@ -10,13 +11,12 @@ There is no garbage collection (don't know how yet), so watch memory !!!
 */
 fn main() {
 	// enter the leading hex-nulls the hash should have
-	nulls := os.input('Enter leading hex-nulls: ')
+	num := os.input('Enter number of leading hex-nulls: ')
 	mut i := 0
-	for i < nulls.len {
-		if nulls[i].str() != '0' {
-			println('ERROR: Must be nulls!')
-			exit(1)
-		}
+	nums := strconv.atoi(num)?
+	mut nulls := ""
+	for i < nums {
+		nulls += "0"
 		i++
 	}
 	mut nonce := rand.u32() // make new random nonce
@@ -34,7 +34,7 @@ fn main() {
 			break // stop the loop
 		}
 		// println(hashthex)		// DEBUG
-		hashthex.free()
+		//hashthex.free()
 		nonce++ // increment nonce and counter by 1
 		count++
 	}
