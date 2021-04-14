@@ -10,11 +10,12 @@ The Blockchain is programmed in [V](https://github.com/vlang/v). As hash algorit
 - C-Compiler
 - Installed [V-Compiler](https://github.com/vlang/v)
 
-## Usage
-`git clone https://github.com/bstnbuck/Proof-of-Work-using-Vlang.git`
+## Usage & Build
+* Clone the Repo: `git clone https://github.com/bstnbuck/Proof-of-Work-using-Vlang.git`
+* Build with optional garbage collector: ``` v -prod -gc boehm . ```
 
 ##### Execute:
-* If you want to execute the Proof-of-Work run the program in console with `v run main.v`.
+* If you want to execute the Proof-of-Work run the program in console.
 * After that enter the leading hex-nulls the hash should have. Should like this: **0000**
     => Otherwise an error will be printed and the program exits.
 

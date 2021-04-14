@@ -5,18 +5,18 @@ import os
 import strconv
 
 /*
-Because this is my first V-project, there is of course still a lot of potential upwards. 
-Care should be taken with the leading zeros, as they influence the runtime considerably. 
-There is no garbage collection (don't know how yet), so watch memory !!!
+Because this is my first V-project, there is of course still a lot of potential upwards.
+Care should be taken with the leading zeros, as they influence the runtime considerably.
+There is no garbage collection (optionally you can use Boehm GC), so watch memory !!!
 */
 fn main() {
 	// enter the leading hex-nulls the hash should have
 	num := os.input('Enter number of leading hex-nulls: ')
 	mut i := 0
-	nums := strconv.atoi(num)?
-	mut nulls := ""
+	nums := strconv.atoi(num) ?
+	mut nulls := ''
 	for i < nums {
-		nulls += "0"
+		nulls += '0'
 		i++
 	}
 	mut nonce := rand.u32() // make new random nonce
@@ -33,8 +33,8 @@ fn main() {
 				count.str() + '\n') // print hash, text&nonce and counter
 			break // stop the loop
 		}
+
 		// println(hashthex)		// DEBUG
-		//hashthex.free()
 		nonce++ // increment nonce and counter by 1
 		count++
 	}
