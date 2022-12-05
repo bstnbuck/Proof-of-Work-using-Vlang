@@ -13,7 +13,7 @@ fn main() {
 	// enter the leading hex-nulls the hash should have
 	num := os.input('Enter number of leading hex-nulls: ')
 	mut i := 0
-	nums := strconv.atoi(num) ?
+	nums := strconv.atoi(num)!
 	mut nulls := ''
 	for i < nums {
 		nulls += '0'
@@ -29,12 +29,11 @@ fn main() {
 	for { // endless while
 		hashthex = sha256.hexhash(text + nonce.str())
 		if hashthex.starts_with(nulls) {
-			println('\nHash found!: $hashthex \nText+Nonce: ' + text + nonce.str() + ' Count: ' +
+			println('\nHash found!: ${hashthex} \nText+Nonce: ' + text + nonce.str() + ' Count: ' +
 				count.str() + '\n') // print hash, text&nonce and counter
 			break // stop the loop
 		}
 
-		// println(hashthex)		// DEBUG
 		nonce++ // increment nonce and counter by 1
 		count++
 	}

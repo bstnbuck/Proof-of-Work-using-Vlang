@@ -2,46 +2,33 @@
 
 ![PoW using Vlang](https://github.com/bstnbuck/Proof-of-Work-using-Vlang/workflows/PoW%20using%20Vlang/badge.svg?branch=master)
 
->**Not all functions are implemented yet! This program should only show the principle of Proof-of-Work and Blockchains.**
-The Blockchain is programmed in [V](https://github.com/vlang/v). As hash algorithm is used SHA256.
+>**This program should only show the principle of Proof-of-Work and Blockchains.**
+The Blockchain is programmed in [V](https://github.com/vlang/v). As hash algorithm SHA256 is used.
 
 
 ## Requirements
-- C-Compiler
 - Installed [V-Compiler](https://github.com/vlang/v)
 
 ## Usage & Build
 * Clone the Repo: `git clone https://github.com/bstnbuck/Proof-of-Work-using-Vlang.git`
-* Build with optional garbage collector: ``` v -prod -gc boehm . ```
+* Build: ``` v -prod -cc {gcc, msvc, tcc} . ```
 
 ##### Execute:
 * If you want to execute the Proof-of-Work run the program in console.
-* After that enter the leading hex-nulls the hash should have. Should like this: **0000**
-    => Otherwise an error will be printed and the program exits.
+* After that enter the leading hex-nulls the hash should have. Should like this: **5** => 00000
 
 ##### Example output:
 ```
-Enter leading hex-nulls: 0000
-Random Nonce: 3322132513
-Started: 2020-08-08 23:43:29
+Enter number of leading hex-nulls: 5
+Random Nonce: 4028111107
+Started: 2022-12-05 12:44:54
 
-Hash found!: 0000e896ab477e8a1dd9392f1133c717c026cb2ce07a2486ba90812728ce4838
-Text+Nonce: HelloWorld3322135425 Count: 2912
+Hash found!: 00000768f7cf74053c2d7420efa0594e99906bc012c399c40e94a8bc66878b33
+Text+Nonce: HelloWorld4028323042 Count: 211935
 
-Stopped: 2020-08-08 23:43:30
-Duration: 48ms => 0sec
+Stopped: 2022-12-05 12:44:54
+Duration: 472ms => 0sec
 ```
-Using **VS-Code**:
-With VS-Code you can easily edit the Code, but be very careful of what you change!
-
-#### Blockchain:
-1.  After starting the program begins automatically. Nothing else to do!
 
 ### Information
-* The Code is self-explanatory commented.
 * The Proof-of-Work function uses a string with a incremented Nonce as hash operators.
-* **Important! Since V has no garbage collection, the consumption of RAM is constantly increasing, this should be observed permanently.** I will look for a solution in the near future.
-
-### The following is still being implemented
-* More functions
-* A full Blockchain application

@@ -18,5 +18,5 @@ jobs:
         git clone https://github.com/vlang/v
         cd v
         make
-    - name: run proof-of-work
+    - name: build proof-of-work
       run: ./v/v .
