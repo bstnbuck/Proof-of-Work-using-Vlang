@@ -7,7 +7,6 @@ import strconv
 /*
 Because this is my first V-project, there is of course still a lot of potential upwards.
 Care should be taken with the leading zeros, as they influence the runtime considerably.
-There is no garbage collection (optionally you can use Boehm GC), so watch memory !!!
 */
 fn main() {
 	// enter the leading hex-nulls the hash should have
