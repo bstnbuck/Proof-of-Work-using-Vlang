@@ -37,7 +37,7 @@ fn main() {
 		count++
 	}
 	timestamp_stop := time.now()
-	duration := timestamp_stop.unix_time_milli() - timestamp_start.unix_time_milli()
+	duration := timestamp_stop.unix_milli() - timestamp_start.unix_milli()
 	println('Stopped: ' + timestamp_stop.str()) // print timestamp
 	println('Duration: ' + duration.str() + 'ms => ' + (duration / 1000).str() + 'sec') // print duration
 }
